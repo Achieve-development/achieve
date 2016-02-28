@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  
+  root 'top#index'
+  
   resources :blogs
+  
+  get 'contact/new' => 'contact#new'
+  post 'contact/confirm' => 'contact#confirm'
+  post 'contact/create' => 'contact#create'
+  
+  get 'company/show' => 'company#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
