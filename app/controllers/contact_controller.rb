@@ -5,18 +5,24 @@ class ContactController < ApplicationController
     
     def confirm
         @contact = Contact.new(contact_params)
-        if @contact.valid?
-            render :action => 'confirm'
-        else
-            render :action => 'new'
+        if @contact.invalid?
+            render 'new'
         end
     end
     
     def create
         @contact = Contact.new(contact_params)
-        @contact.save
-        render :action => 'create'
+        
+        if params[:back]
+            render 'new'
+        elsif @contact.save
+            render 'create'
+        else
+            render 'new'
+        end
     end
+    
+    
     
     private
         def contact_params

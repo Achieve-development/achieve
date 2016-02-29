@@ -7,7 +7,7 @@
         <div class='alert alert-danger' role='alert'>
             <strong>入力内容にエラーがあります。</strong>
             <ul>
-                <% @contact.errors.each do |msg| %>
+                <% @contact.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
                 <% end %>
             </ul>
