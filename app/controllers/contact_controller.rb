@@ -1,6 +1,10 @@
 class ContactController < ApplicationController
     def new
+      if params[:back] 
+        @contact = Contact.new(contact_params)
+      else
         @contact = Contact.new
+      end
     end
     
     def confirm
