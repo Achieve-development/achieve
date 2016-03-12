@@ -4,11 +4,20 @@ ja:
     models:
       contact: コンタクト
       blog: ブログ
+      user: ユーザー
     attributes:
       contact:
         name: 名前
         email: メールアドレス
         message: メッセージ
+      user:
+       name: ユーザー名
+       email: メールアドレス
+       password: パスワード
+       encrypted_password: パスワード
+       password_confirmation: パスワード確認
+       current_password: 現在のパスワード
+       remember_me: 記憶する
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
