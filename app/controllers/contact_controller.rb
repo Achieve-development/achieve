@@ -10,7 +10,7 @@ class ContactController < ApplicationController
     def confirm
         @contact = Contact.new(contact_params)
         if @contact.invalid?
-            render 'new'
+            redirect_to contact_new_path
         end
     end
     

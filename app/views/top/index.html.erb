@@ -1,7 +1,5 @@
 <h1>すべてのひとにテクノロジーという武器を</h1>
 
-<p>dive into code</p>
-
 <div class='boxA'>
 <div class='box1'>
     <div class='site'>
@@ -10,7 +8,7 @@
 </div>
 
 <div class='box2'>
-    <nav class='menu'>
+     <!--<nav class='menu'>
          <ul>
              <li><%= link_to 'TOP', root_path %></li>
              <li><%= link_to 'お問い合わせ', contact_new_path, class: 'btn' %></li>
@@ -21,9 +19,38 @@
              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></li>
            <% else %>
              <li><%= link_to 'ログイン', new_user_session_path %></li> 
-           <% end %>
+           <% end %> 
          </ul>   
+    </nav>  -->
+    
+    <nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+    	</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample">
+			<ul class="nav navbar-nav">
+				<li><%= link_to 'お問い合わせ', contact_new_path, class: 'btn' %></li>
+				<li><%= link_to 'DIVE NOW', company_show_path, class: 'btn' %></li>
+				<li><%= link_to 'ブログ', blogs_path, class: 'btn' %></li>
+			   <% if user_signed_in? %>
+                <li><%= link_to 'ユーザー情報変更', edit_user_registration_path, class: 'btn'  %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn'  %></li>
+               <% else %>
+                <li><%= link_to 'ログイン', new_user_session_path, class: 'btn' %></li> 
+               <% end %>
+			</ul>
+		</div>
+	</div>
     </nav>
+
+    
 </div>
 </div>
 

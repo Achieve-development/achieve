@@ -3,16 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
-# less(CSS)対応（後述LESSを使う場合）
-gem 'less-rails'
-# JavaScript のエンジンである v8 を Ruby から使えるようにする
-gem 'therubyracer'
-# JavaScriptコードを実行するためのエンジン
-gem 'execjs'
-
-# Twitter社が提供しているCSSとJavaScriptのフレームワーク
-gem 'twitter-bootstrap-rails'
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -39,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
 gem 'rails_12factor', group: :production
+
+gem 'therubyracer', platforms: :ruby
+
+gem 'bootstrap-sass', '~> 3.2.0' 
+
+gem 'autoprefixer-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

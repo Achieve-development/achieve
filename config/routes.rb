@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :blogs
   devise_for :users
   root to: 'top#index'
   
-  resources :blogs
   
   get 'contact/new' => 'contact#new'
   post 'contact/new' => 'contact#new'
