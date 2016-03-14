@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
+  root to: 'top#index'
+  
   resources :blogs
   devise_for :users
-  root to: 'top#index'
+  resources :users, only: [:index, :show]
+  
   
   
   get 'contact/new' => 'contact#new'
