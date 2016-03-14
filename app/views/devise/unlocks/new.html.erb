@@ -5,11 +5,11 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "メールアドレスを入力して下さい。" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "凍結解除のリクエストを再送信" %>
+    <%= f.submit "凍結解除のリクエストを再送信", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
