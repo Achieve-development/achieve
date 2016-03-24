@@ -42,6 +42,14 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'pry-rails'
+
+gem 'omniauth' 
+
+gem 'omniauth-twitter'
+
+gem 'omniauth-facebook'
+
 
 
 group :development, :test do
