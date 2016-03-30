@@ -19,6 +19,7 @@
     <%= f.label :content %><br>
     <%= f.text_area :content, class: 'form-control', placeholder: "内容を入力して下さい。" %>
   </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit '投稿する', class: 'btn btn-primary' %>
   </div>

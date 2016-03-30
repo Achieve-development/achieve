@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :confirm_login?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs
@@ -14,19 +15,16 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-   redirect_to new_user_session_path unless user_signed_in?
    @blog = Blog.new
   end
 
   # GET /blogs/1/edit
   def edit
-    redirect_to new_user_session_path unless user_signed_in?
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
-    redirect_to new_user_session_path unless user_signed_in?
     @blog = Blog.new(blog_params)
 
     respond_to do |format|
@@ -43,7 +41,6 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
-    redirect_to new_user_session_path unless user_signed_in?
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
@@ -58,7 +55,6 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    redirect_to new_user_session_path unless user_signed_in?
     @blog.destroy
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
@@ -69,12 +65,16 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      @blog = current_user.blogs.find(params[:id])
     end
     
-
+    def confirm_login?
+      redirect_to new_user_session_path unless user_signed_in?
+    end
+    
+   
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content, :user_id)
     end
 end
