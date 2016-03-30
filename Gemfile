@@ -26,12 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#ログイン機能実装
 gem 'devise'
 
 gem 'rails_12factor', group: :production
 
 gem 'therubyracer', platforms: :ruby
 
+#bootstrap
 gem 'bootstrap-sass', '~> 3.2.0' 
 
 gem 'autoprefixer-rails'
@@ -45,10 +47,14 @@ gem 'autoprefixer-rails'
 gem 'pry-rails'
 
 gem 'omniauth' 
-
+#Twitter認証
 gem 'omniauth-twitter'
-
+#Facebook認証
 gem 'omniauth-facebook'
+#画像アップローダー
+gem 'carrierwave'
+#画像リサイズ機能
+gem 'rmagick'
 
 
 
