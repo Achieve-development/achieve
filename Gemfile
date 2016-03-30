@@ -56,6 +56,8 @@ gem 'carrierwave'
 
 gem 'bootstrap-social-rails'
 
+#gem 'rmagick'
+
 
 
 group :development, :test do

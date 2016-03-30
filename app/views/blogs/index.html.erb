@@ -12,6 +12,7 @@
       <% end %>
       </div>
       <div class="panel-body">
+        <%= profile_img(blog.user) %>
         <%= blog.content %><br/>
         <em><%= blog.created_at %></em>
         <p><em>投稿者: <%= blog.user.name %></em></p>
