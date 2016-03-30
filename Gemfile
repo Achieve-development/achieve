@@ -53,8 +53,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #画像アップローダー
 gem 'carrierwave'
-#画像リサイズ機能
-gem 'rmagick'
+
+gem 'bootstrap-social-rails'
 
 
 
