@@ -32,7 +32,14 @@
     <%= f.label :current_password %><br />
     <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "変更するときは現在のパスワードを入力して下さい。" %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :image %>
+    <%= image_tag @user.image.thumb.url if @user.image? %>
+　  <%= f.file_field :image %>
+　  <%= f.hidden_field :image_cache %>
+　</div>
+　
   <div class="actions">
     <%= f.submit "更新する", class: 'btn btn-primary' %>
   </div>

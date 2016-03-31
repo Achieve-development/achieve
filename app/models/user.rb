@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
   
-
+  mount_uploader :image, ImageUploader
+  
   #validates :name, presence: true, length: { maximum: 50 }
   
   def self.create_unique_string 
