@@ -12,7 +12,11 @@
       <% end %>
       </div>
       <div class="panel-body">
-        <%= profile_img(blog.user) %>
+        <% if blog.user.image? %>
+　　      <%= image_tag blog.user.image.thumb.url %>
+　      <% else %>
+          <%= profile_img(blog.user) %>
+        <% end %>
         <%= blog.content %><br/>
         <em><%= blog.created_at %></em>
         <p><em>投稿者: <%= blog.user.name %></em></p>
