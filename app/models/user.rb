@@ -17,14 +17,16 @@ class User < ActiveRecord::Base
     user = User.where(provider: auth.provider, uid: auth.uid).first
     
     unless user
-      user = User.create(
+      user = User.new(
               name: auth.extra.raw_info.name, 
               provider: auth.provider, 
-              uid: auth.uid, 
-              email: auth.info.email, 
+              uid: auth.uid,
+              email: auth.info.email || User.create_unique_email,
               password: Devise.friendly_token[0,20]
-              ) 
-    end 
+              )
+      user.skip_confirmation!
+      user.save
+    end
     user
   end
   
@@ -32,18 +34,23 @@ class User < ActiveRecord::Base
     user = User.where(provider: auth.provider, uid: auth.uid).first
     
     unless user 
-      user = User.create(
+      user = User.new(
               name: auth.info.nickname,
               provider: auth.provider, 
               uid: auth.uid, 
               email: User.create_unique_email, 
               password: Devise.friendly_token[0,20]
-              ) 
+              )
+      user.skip_confirmation!
+      user.save
     end 
     user
   end
-    
+  
+  private
+  
     def self.create_unique_email 
       User.create_unique_string + "@example.com" 
     end
+
 end

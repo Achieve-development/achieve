@@ -46,11 +46,14 @@ gem 'autoprefixer-rails'
 
 gem 'pry-rails'
 
+#認証
 gem 'omniauth' 
 #Twitter認証
 gem 'omniauth-twitter'
 #Facebook認証
 gem 'omniauth-facebook'
+
+
 #画像アップローダー
 gem 'carrierwave'
 
