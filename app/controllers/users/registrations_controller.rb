@@ -4,11 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       super 
     end
     
-    def edit
-      super
-      @user.image.cache! unless @user.image.blank? #既に画像が存在する場合はキャシュを作成する
-    end
-    
     def update
       self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
       prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
