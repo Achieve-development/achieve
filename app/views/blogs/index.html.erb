@@ -13,9 +13,9 @@
       </div>
       <div class="panel-body">
         <% if blog.user.image? %>
-　　      <%= image_tag blog.user.image.thumb.url %>
+　　      <p><%= image_tag blog.user.image.thumb.url %><p>
 　      <% else %>
-          <%= profile_img(blog.user) %>
+          <p><%= profile_img(blog.user) %><p>
         <% end %>
         <%= blog.content %><br/>
         <em><%= blog.created_at %></em>
