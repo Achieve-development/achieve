@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20160330094936) do
     t.string   "uid",                    default: "", null: false
     t.string   "provider",               default: "", null: false
     t.string   "image_url"
-    t.string   "image"
+    t.binary   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

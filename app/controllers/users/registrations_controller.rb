@@ -5,15 +5,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     
     def edit
-      @user.image.cache! unless @user.image.blank? #既に画像が存在する場合はキャシュを作成する
       super
+      @user.image.cache! unless @user.image.blank? #既に画像が存在する場合はキャシュを作成する
     end
     
     def update
       self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
       prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
    
-      #if update_resource(resource, account_update_params)
+   
+    #パスワードなしでユーザー情報を変更できるように設定。
       if resource.update_without_current_password(account_update_params)
         yield resource if block_given?
         if is_flashing_format?
