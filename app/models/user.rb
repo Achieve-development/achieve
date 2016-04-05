@@ -13,6 +13,20 @@ class User < ActiveRecord::Base
     SecureRandom.uuid
   end
   
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+  
+  
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     
@@ -24,7 +38,7 @@ class User < ActiveRecord::Base
               email: auth.info.email || User.create_unique_email,
               password: Devise.friendly_token[0,20]
               )
-      user.skip_confirmation!
+      user.skip_confirmation! #メールアドレスによる本人確認をスキップする
       user.save
     end
     user
@@ -41,7 +55,7 @@ class User < ActiveRecord::Base
               email: User.create_unique_email, 
               password: Devise.friendly_token[0,20]
               )
-      user.skip_confirmation!
+      user.skip_confirmation! #メールアドレスによる本人確認をスキップする
       user.save
     end 
     user

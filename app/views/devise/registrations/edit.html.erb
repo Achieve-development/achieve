@@ -27,11 +27,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "変更するときは現在のパスワードを入力して下さい。" %>
-  </div>
   
   <div class="field">
     <%= f.label :image %>
@@ -39,6 +34,10 @@
 　  <%= f.file_field :image %>
 　  <%= f.hidden_field :image_cache %>
 　</div>
+　
+　<% if @user.persisted? && @user.image? %>
+    <label><%= f.check_box :remove_image %>画像を削除</label>
+  <% end %>
 　
   <div class="actions">
     <%= f.submit "更新する", class: 'btn btn-primary' %>
