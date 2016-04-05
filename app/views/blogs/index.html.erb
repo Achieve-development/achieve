@@ -12,8 +12,8 @@
       <% end %>
       </div>
       <div class="panel-body">
-        <% if blog.user.image? %>
-　　      <p><%= image_tag blog.user.image.thumb.url %><p>
+        <% if blog.user.image.url.present? %>
+　　      <p><%= image_tag blog.user.image.thumb %><p>
 　      <% else %>
           <p><%= profile_img(blog.user) %><p>
         <% end %>
