@@ -6,14 +6,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
  # 画像の上限を700pxにする
-  process :resize_to_limit => [73, 73]
+  process :resize_to_limit => [700, 700]
 
   # 保存形式をJPGにする
   process :convert => 'jpg'
 
   # サムネイルを生成する設定
   version :thumb do
-    process :resize_to_limit => [24, 24]
+    process :resize_to_limit => [73, 73]
   end
 
   # jpg,jpeg,gif,pngしか受け付けない
@@ -21,7 +21,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
   
-  def cache_dir
-    "#{Rails.root}/tmp/uploads"
+  def store_dir
+    "uploads/#{model.id}"
   end
+ 
+  def cache_dir
+    "tmp/uploads/cache/#{model.id}"
+  end
+  
 end
