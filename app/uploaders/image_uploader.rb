@@ -21,4 +21,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
   
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
 end
