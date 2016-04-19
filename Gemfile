@@ -70,6 +70,8 @@ gem 'rspec-rails'
 #
 gem 'capybara'
 
+gem 'rambulance'
+
 
 
 group :development, :test do

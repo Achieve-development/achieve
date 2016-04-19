@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+<meta chaset='utf-8'>
+
+<head>
+  
+  <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => true %>
+  
+  <title>Achieve</title>
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <p class="notice"><%= notice %></p> 
+  <p class="alert"><%= alert %></p>
+  
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "achieve", root_path , class: "navbar-brand"%>
+    </div>
+    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete %></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'ブログ', blogs_path %></li>
+          <li><%= link_to 'ユーザ一覧', users_path %></li>
+          <li><%= link_to 'ユーザー情報変更', edit_user_registration_path %></li>
+        </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "サインイン", new_user_session_path %></li>
+      <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
