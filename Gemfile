@@ -38,6 +38,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
 
+#AWSのS3を使用するためのGem
+gem 'fog' 
+
+gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -56,10 +60,15 @@ gem 'omniauth-facebook'
 
 #画像アップローダー
 gem 'carrierwave'
-
+#Bootstrap
 gem 'bootstrap-social-rails'
-
+#リサイズできるようにする
 gem 'rmagick'
+
+#Rspec
+gem 'rspec-rails'
+#
+gem 'capybara'
 
 
 

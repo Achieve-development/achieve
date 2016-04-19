@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   post 'contact/confirm' => 'contact#confirm'
   post 'contact/create' => 'contact#create'
   
-  get 'company/show' => 'company#show'
+  get 'about' => 'about#company_overview'
 end
