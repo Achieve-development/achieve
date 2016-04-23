@@ -41,14 +41,14 @@ gem 'autoprefixer-rails'
 #AWSのS3を使用するためのGem
 gem 'fog' 
 
+gem 'pry-rails'
+
 gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'pry-rails'
 
 #認証
 gem 'omniauth' 
@@ -77,6 +77,25 @@ gem 'rambulance'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  gem 'awesome_print' 
+  gem 'better_errors'
+  gem 'binding_of_caller' 
+  gem 'database_rewinder'
+  gem 'factory_girl_rails' 
+  gem 'hirb-unicode' 
+  gem 'hirb' 
+  gem 'pry-byebug' 
+  gem 'pry-doc' 
+  gem 'pry-stack_explorer' 
+  gem 'quiet_assets' 
+  gem 'tapp'
+  gem "annotate", github: "ctran/annotate_models" 
+  gem "colorize_unpermitted_parameters" 
+  gem "guard-rspec", require: false 
+  gem "rack-mini-profiler"
+  gem "spring-commands-rspec" 
+  gem "xray-rails"
 end
 
 group :development do
