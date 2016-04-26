@@ -1,3 +1,8 @@
-<h1>Users#show</h1>
+<h1>ユーザー詳細ページ</h1>
 
-<p>Find me in app/views/users/show.html.erb</p>
+<h3><%= @user.name %></h3>
+<p><%= profile_img(@user) %></p>
+
+<% if current_user && current_user.id == @user.id %>
+  <%= link_to 'ユーザー編集', edit_user_path(current_user.id), class:'btn btn-primary' %>
+<% end %>
