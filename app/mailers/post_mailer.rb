@@ -4,7 +4,7 @@ class PostMailer < ApplicationMailer
   
   def post_email(contact)
     @name = contact.name
-    @massage = contact.message
+    @message = contact.message
     mail to: contact.email, subject: "Achieveお問い合わせ完了"
   end
   
