@@ -15,15 +15,14 @@ class ContactController < ApplicationController
     end
     
     def create
-        @contact = Contact.new(contact_params)
+      @contact = Contact.new(contact_params)
         
-        if params[:back]
-            render 'new'
-        elsif @contact.save
-            render 'create'
-        else
-            render 'new'
-        end
+      if params[:back]
+        render 'new'
+      elsif @contact.save
+        PostMailer.post_email(@contact).deliver
+        render 'create'
+      end
     end
     
     
