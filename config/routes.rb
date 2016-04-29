@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   
   
   get 'contact/new' => 'contact#new'
+  get 'contact/recieve' => 'contact#recieve'
   post 'contact/new' => 'contact#new'
   post 'contact/confirm' => 'contact#confirm'
   post 'contact/create' => 'contact#create'

@@ -7,4 +7,5 @@ class PostMailer < ApplicationMailer
     @massage = contact.message
     mail to: contact.email, subject: "Achieveお問い合わせ完了"
   end
+  
 end
