@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
        <p><%= contact.email %></p>
-       <p><%= contact.message %></p>
+       <p><%= simple_format(contact.message) %></p>
     </div>
   </div>
 <% end %>
