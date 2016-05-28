@@ -8,4 +8,5 @@ class PostMailer < ApplicationMailer
     mail to: contact.email, subject: "Achieveお問い合わせ完了"
   end
   
+  
 end

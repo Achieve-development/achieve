@@ -18,4 +18,6 @@ production:
   <<: *default
   database: achieve_production
   username: achieve
+  production:
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV['ACHIEVE_DATABASE_PASSWORD'] %>
