@@ -4,13 +4,13 @@ class ContactController < ApplicationController
         @contact = Contact.new(contact_params)
       else
         @contact = Contact.new
-        binding.pry
+        #binding.pry
       end
     end
     
     def confirm
      @contact = Contact.new(contact_params)
-      binding.pry
+      #binding.pry
         if @contact.invalid?
           redirect_to contact_new_path
         end
